@@ -9,17 +9,21 @@ char table[26];
 void cypher_char(string key);
 int main(int argc, string argv[])
 {
+    // Ensuring only one key.
     if(argc != 2)
     {
         printf("Usage: ./substitution key\n");
         return 1;
     }
+    
+    //Ensuring key has enough charecters to encrypt.
     if(strlen(argv[1])!= 26)
     {
         printf("Key must contain 26 characters.\n");
         return 1;
     }
-
+    
+    // Ensuring only alphabets as charecters in key.
     for(int i = 0;i < strlen(argv[1]); i++)
     {
         bool alpha = isalpha(argv[1][i]);
@@ -32,8 +36,11 @@ int main(int argc, string argv[])
 
 
     cypher_char(argv[1]);
-
+    
+    // Getting a plain text to encrypt.
     string plain_text = get_string("Plain Text : ");
+
+    // Giving out encrypted cypher text.
     printf("Cypher Text : ");
     for(int i = 0; i < strlen(plain_text); i++)
     {
