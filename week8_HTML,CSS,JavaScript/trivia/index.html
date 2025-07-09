@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            function checkAnswer(button){
+                let buttons = document.querySelectorAll(".section:nth-of-type(1) button");
+                let feedback = document.getElementById("mc-feedback");
+
+                buttons.forEach(btn => {
+                    btn.style.backgroundColor = "";
+                });
+
+                if (button.innerText === "15th August 1947") {
+                    button.style.backgroundColor = "green";
+                    feedback.innerText = "Correct!";
+                    feedback.style.color = "green";
+
+                }
+                else{
+                    button.style.backgroundColor = "red";
+                    feedback.innerText = "Incorrect.";
+                    feedback.style.color = "red";
+                }
+            }
+
+            function showCorrect() {
+                let input = document.getElementById("fr-input");
+                let feedback = document.getElementById("fr-feedback");
+                let answer = input.value.trim().toLowerCase();
+
+                if (answer === "jawaharlal nehru") {
+                    input.style.backgroundColor = "lightgreen";
+                    feedback.innerText = "Correct!";
+                    feedback.style.color = "green";
+                } else {
+                    input.style.backgroundColor = "lightcoral";
+                    feedback.innerText = "Incorrect.";
+                    feedback.style.color = "red";
+                }
+            }
+
+        </script>
+
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                 <h3>When did India gain independence from British rule?</h3>
+
+                 <button onclick="checkAnswer(this)">26th January 1950</button>
+                 <button onclick="checkAnswer(this)">15th August 1947</button>
+                 <button onclick="checkAnswer(this)">15th August 1950</button>
+                <p id="mc-feedback"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>Who was the first Prime Minister of independent India?</h3>
+                <input type="text" id="fr-input" placeholder="Type your answer here">
+                <button type="button" onclick="showCorrect()">Check Answer</button>
+                <p id="fr-feedback"></p>
+            </div>
+        </div>
+    </body>
+</html>
