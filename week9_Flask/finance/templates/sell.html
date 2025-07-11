@@ -1,0 +1,17 @@
+<form action="/sell" method="post">
+    <div>
+        <label for="symbol">Stock</label>
+        <select name="symbol" id="symbol">
+            {% for stock in stocks %}
+                <option value="{{ stock.stock_symbol }}">{{ stock.stock_symbol }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div>
+        <label for="shares">Shares to Sell</label>
+        <input type="number" name="shares" min="1" required>
+    </div>
+
+    <button type="submit">Sell</button>
+</form>

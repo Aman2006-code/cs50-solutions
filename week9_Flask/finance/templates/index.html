@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <h2>Current Holdings</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in stocks %}
+            <tr>
+                <td>{{ stock.symbol }}</td>
+                <td>{{ stock.name }}</td>
+                <td>{{ stock.shares }}</td>
+                <td>{{ stock.price | usd }}</td>
+                <td>{{ stock.total | usd }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div style="margin-top: 20px;">
+        <p><strong>Cash:</strong> {{ cash | usd }}</p>
+        <p><strong>Total Portfolio Value:</strong> {{ total | usd }}</p>
+    </div>
+{% endblock %}
