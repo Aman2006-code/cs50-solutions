@@ -1,1 +1,1 @@
-# CS50 Problem Set Solutions
+# CS50 Problem Set Solutions.
